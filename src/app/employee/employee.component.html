@@ -9,15 +9,15 @@
     <div *ngFor="let address of employeeForm.controls.address.controls; let i=index" class="panel panel-default">
       <div class="panel-heading">
         <span>Address {{i + 1}}</span>
-        <span class="glyphicon glyphicon-remove pull-right" *ngIf="employeeForm.controls.address.controls.length > 1"></span>
+        <span class="glyphicon glyphicon-remove pull-right" *ngIf="employeeForm.controls.address.controls.length > 1" (click)="removeAddress(i)" ></span>
       </div>
       <div class="panel-body" [formGroupName]="i">
         <div class="form-group col-xs-6">
-          <label>First Name</label>
+          <label>Address Line1</label>
           <input type="text" class="form-control" required formControlName="addressLine1">
         </div>
         <div class="form-group col-xs-6">
-          <label>Last Name</label>
+          <label>Address Line1</label>
           <input type="text" class="form-control" required formControlName="addressLine2">
         </div>
         <div class="form-group col-xs-6">

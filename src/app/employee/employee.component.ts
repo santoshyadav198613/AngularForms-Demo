@@ -40,4 +40,9 @@ export class EmployeeComponent implements OnInit {
     const studentControls = <FormArray>this.employeeForm.controls['address'];
     studentControls.push(this.initAddress());
   }
+
+  removeAddress(i: number) {
+    const studentControls = <FormArray>this.employeeForm.controls['address'];
+    studentControls.removeAt(i);
+  }
 }
