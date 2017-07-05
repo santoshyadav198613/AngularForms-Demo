@@ -1,0 +1,42 @@
+<h2>Employee</h2>
+<h3><i>FormControl in a FormGroup</i></h3>
+<form [formGroup]="employeeForm" novalidate>
+  <div class="form-group">
+    <label>Name:</label>
+    <input class="form-control" formControlName="name">
+  </div>
+  <div formArrayName="address">
+    <div *ngFor="let address of employeeForm.controls.address.controls; let i=index" class="panel panel-default">
+      <div class="panel-heading">
+        <span>Address {{i + 1}}</span>
+        <span class="glyphicon glyphicon-remove pull-right" *ngIf="employeeForm.controls.address.controls.length > 1"></span>
+      </div>
+      <div class="panel-body" [formGroupName]="i">
+        <div class="form-group col-xs-6">
+          <label>First Name</label>
+          <input type="text" class="form-control" required formControlName="addressLine1">
+        </div>
+        <div class="form-group col-xs-6">
+          <label>Last Name</label>
+          <input type="text" class="form-control" required formControlName="addressLine2">
+        </div>
+        <div class="form-group col-xs-6">
+          <label>State</label>
+          <input type="text" class="form-control" required formControlName="state">
+        </div>
+        <div class="form-group col-xs-6">
+          <label>City</label>
+          <input type="text" class="form-control" required formControlName="city">
+        </div>
+      </div>
+    </div>
+    <button type="button" (click)="addAddress()">Add Address</button>
+  </div>
+  <div class="form-group">
+    <label>Age:  </label>
+    <input class="form-control" formControlName="age" type="number">
+  </div>
+</form>
+
+<p>Form value: {{ employeeForm.value | json }}</p>
+<p>Form status: {{ employeeForm.status | json }}</p>
