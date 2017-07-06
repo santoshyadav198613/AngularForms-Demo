@@ -3,6 +3,13 @@
   <h1>
     Welcome to {{title}}!!
   </h1>
- 
+  <button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
+  <button class="btn btn-lg btn-outline-primary" (click)="openForm()">Launch Form modal</button>
 </div>
- 
+
+<ngb-timepicker [(ngModel)]="time" [meridian]="meridian"></ngb-timepicker>
+<button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+    Meridian - {{meridian ? "ON" : "OFF"}}
+</button>
+<hr>
+<pre>Selected time: {{time | json}}</pre>

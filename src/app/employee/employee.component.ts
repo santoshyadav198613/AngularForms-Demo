@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from './employee';
 import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
+
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
@@ -9,7 +11,7 @@ import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@ang
 export class EmployeeComponent implements OnInit {
   employeeForm: FormGroup;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, private _activeModal: NgbActiveModal) {
 
   }
 

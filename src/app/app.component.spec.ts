@@ -2,18 +2,21 @@ import { TestBed, async } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule, FormsModule],
       declarations: [
-        AppComponent
+        AppComponent, EmployeeComponent
       ],
     }).compileComponents();
   }));
 
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
+    //   const fixture1 = TestBed.createComponent(EmployeeComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));

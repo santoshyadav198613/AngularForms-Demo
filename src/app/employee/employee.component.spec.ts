@@ -9,8 +9,7 @@ import { DebugElement } from '@angular/core';
 describe('EmployeeComponent', () => {
   let component: EmployeeComponent;
   let fixture: ComponentFixture<EmployeeComponent>;
-  let de: DebugElement;
-  let el: HTMLElement;
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -38,6 +37,15 @@ describe('EmployeeComponent', () => {
 
   it('form invalid when filled', () => {
     component.employeeForm.controls['name'].setValue('Santosh');
+    expect(component.employeeForm.valid).toBeFalsy();
+  });
+
+  it('Add new address', () => {
+    component.addAddress();
+    fixture.detectChanges();
+    let form = component.employeeForm.controls['address'];
+    console.log(form);
+    console.log(component.employeeForm);
     expect(component.employeeForm.valid).toBeFalsy();
   });
 
